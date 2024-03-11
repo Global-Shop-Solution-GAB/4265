@@ -1,0 +1,697 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Cutlist Information")
+Gui.Form..Size(22545,8430)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Sizeable(False)
+Gui.Form..Event(UnLoad,Custlist_UnLoad)
+Gui.Form.cmdSave.Create(Button)
+Gui.Form.cmdSave.Size(1095,435)
+Gui.Form.cmdSave.Position(225,1125)
+Gui.Form.cmdSave.Caption("Save")
+Gui.Form.cmdSave.Event(Click,cmdSave_Click)
+Gui.Form.cmdSave.TabStop(True)
+Gui.Form.cmdSave.TabIndex(17)
+Gui.Form.GsGridControl1.Create(GsGridControl)
+Gui.Form.GsGridControl1.Size(22185,5370)
+Gui.Form.GsGridControl1.Position(120,1710)
+Gui.Form.GsGridControl1.Event(RowCellClick,GsGridControl1_RowClick)
+Gui.Form.lblCablePartNO.Create(Label,"Cable Part No.",True,1290,255,0,195,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtCablePartNo.Create(TextBox,"",True,1905,300,0,195,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtCablePartNo.MaxLength(18)
+Gui.Form.txtCablePartNo.DefaultValue("")
+Gui.Form.txtCablePartNo.ControlGroup(1)
+Gui.Form.txtCablePartNo.TabStop(True)
+Gui.Form.txtCablePartNo.TabIndex(1)
+Gui.Form.lblRefDesignator.Create(Label,"Ref Designator A(Row 1)",True,1935,255,0,2235,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblContact.Create(Label,"Contact",True,1200,255,0,7635,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtRefDesignaor.Create(TextBox,"",True,1905,300,0,2235,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtRefDesignaor.MaxLength(18)
+Gui.Form.txtRefDesignaor.DefaultValue("")
+Gui.Form.txtRefDesignaor.ControlGroup(1)
+Gui.Form.txtRefDesignaor.TabStop(True)
+Gui.Form.txtRefDesignaor.TabIndex(2)
+Gui.Form.txtDejacket.Create(TextBox,"",True,1215,300,0,8985,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtDejacket.NumericOnly(True)
+Gui.Form.txtDejacket.Event(LostFocus,LostFocus)
+Gui.Form.txtDejacket.DefaultValue("")
+Gui.Form.txtDejacket.ControlGroup(1)
+Gui.Form.txtDejacket.TabStop(True)
+Gui.Form.txtDejacket.TabIndex(6)
+Gui.Form.lblDeJacket.Create(Label,"Dejacket",True,960,255,0,8985,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtContact.Create(TextBox,"",True,1215,300,0,7635,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtContact.MaxLength(10)
+Gui.Form.txtContact.DefaultValue("")
+Gui.Form.txtContact.ControlGroup(1)
+Gui.Form.txtContact.TabStop(True)
+Gui.Form.txtContact.TabIndex(5)
+Gui.Form.lblStripper.Create(Label,"Stripper",True,915,240,0,10335,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtStripper.Create(TextBox,"",True,1215,300,0,10335,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStripper.NumericOnly(True)
+Gui.Form.txtStripper.Event(LostFocus,LostFocus)
+Gui.Form.txtStripper.DefaultValue("")
+Gui.Form.txtStripper.ControlGroup(1)
+Gui.Form.txtStripper.TabStop(True)
+Gui.Form.txtStripper.TabIndex(7)
+Gui.Form.lblLength.Create(Label,"Length",True,1005,255,0,11685,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtLength.Create(TextBox,"",True,1215,300,0,11685,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtLength.NumericOnly(True)
+Gui.Form.txtLength.Event(LostFocus,LostFocus)
+Gui.Form.txtLength.DefaultValue("")
+Gui.Form.txtLength.ControlGroup(1)
+Gui.Form.txtLength.TabStop(True)
+Gui.Form.txtLength.TabIndex(8)
+Gui.Form.lblSizeLabel.Create(Label,"Size Label",True,870,255,0,6360,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.cmdClear.Create(Button)
+Gui.Form.cmdClear.Size(1095,435)
+Gui.Form.cmdClear.Position(1530,1125)
+Gui.Form.cmdClear.Caption("Clear")
+Gui.Form.cmdClear.Event(Click,cmdClear_Click)
+Gui.Form.cmdClear.TabStop(True)
+Gui.Form.cmdClear.TabIndex(18)
+Gui.Form.cmdDelete.Create(Button)
+Gui.Form.cmdDelete.Size(1095,435)
+Gui.Form.cmdDelete.Position(255,7320)
+Gui.Form.cmdDelete.Caption("Delete")
+Gui.Form.cmdDelete.Event(Click,cmdDelete_Click)
+Gui.Form.cmdDelete.TabStop(True)
+Gui.Form.cmdDelete.TabIndex(19)
+Gui.Form.ddlSize.Create(DropDownList)
+Gui.Form.ddlSize.Size(1125,330)
+Gui.Form.ddlSize.Position(6360,495)
+Gui.Form.ddlSize.TabStop(True)
+Gui.Form.ddlSize.TabIndex(4)
+Gui.Form.txtRec_ID.Create(TextBox,"",False,1215,300,0,21060,1245,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtRec_ID.NumericOnly(2)
+Gui.Form.txtRec_ID.ControlGroup(1)
+Gui.Form.lblRefDesignator2.Create(Label,"Ref Designator A(Row 2)",True,1935,255,0,4290,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtRefDesignaor2.Create(TextBox,"",True,1905,300,0,4290,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtRefDesignaor2.MaxLength(18)
+Gui.Form.txtRefDesignaor2.DefaultValue("")
+Gui.Form.txtRefDesignaor2.ControlGroup(1)
+Gui.Form.txtRefDesignaor2.TabStop(True)
+Gui.Form.txtRefDesignaor2.TabIndex(3)
+Gui.Form.lblRefDesignator3.Create(Label,"Ref Designator B(Row 1)",True,1935,255,0,17025,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtRefDesignaor3.Create(TextBox,"",True,1905,300,0,17070,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtRefDesignaor3.MaxLength(18)
+Gui.Form.txtRefDesignaor3.DefaultValue("")
+Gui.Form.txtRefDesignaor3.ControlGroup(1)
+Gui.Form.txtRefDesignaor3.TabStop(True)
+Gui.Form.txtRefDesignaor3.TabIndex(12)
+Gui.Form.lblRefDesignator4.Create(Label,"Ref Designator B(Row 2)",True,1935,255,0,19125,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtRefDesignaor4.Create(TextBox,"",True,1905,300,0,19110,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtRefDesignaor4.MaxLength(18)
+Gui.Form.txtRefDesignaor4.DefaultValue("")
+Gui.Form.txtRefDesignaor4.ControlGroup(1)
+Gui.Form.txtRefDesignaor4.TabStop(True)
+Gui.Form.txtRefDesignaor4.TabIndex(13)
+Gui.Form.lblStripper2.Create(Label,"Stripper",True,915,240,0,13065,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtStripper2.Create(TextBox,"",True,1215,300,0,13035,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtStripper2.DefaultValue("")
+Gui.Form.txtStripper2.ControlGroup(1)
+Gui.Form.txtStripper2.NumericOnly(1)
+Gui.Form.txtStripper2.TabStop(True)
+Gui.Form.txtStripper2.TabIndex(9)
+Gui.Form.txtDejacket2.Create(TextBox,"",True,1215,300,0,14385,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtDejacket2.DefaultValue("")
+Gui.Form.txtDejacket2.ControlGroup(1)
+Gui.Form.txtDejacket2.NumericOnly(1)
+Gui.Form.txtDejacket2.TabStop(True)
+Gui.Form.txtDejacket2.TabIndex(10)
+Gui.Form.lblDeJacket2.Create(Label,"Dejacket",True,960,255,0,14385,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblContact2.Create(Label,"Contact",True,1200,255,0,15720,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtContact2.Create(TextBox,"",True,1215,300,0,15735,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtContact2.MaxLength(10)
+Gui.Form.txtContact2.DefaultValue("")
+Gui.Form.txtContact2.ControlGroup(1)
+Gui.Form.txtContact2.TabStop(True)
+Gui.Form.txtContact2.TabIndex(11)
+Gui.Form.ddlSize2.Create(DropDownList)
+Gui.Form.ddlSize2.Size(1125,330)
+Gui.Form.ddlSize2.Position(21165,495)
+Gui.Form.ddlSize2.TabStop(True)
+Gui.Form.ddlSize2.TabIndex(14)
+Gui.Form.lblSizeLabel2.Create(Label,"Size Label",True,870,255,0,21165,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtQty.Create(TextBox,"",True,1290,300,0,2850,1260,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtQty.MaxLength(18)
+Gui.Form.txtQty.NumericOnly(2)
+Gui.Form.txtQty.DefaultValue("")
+Gui.Form.txtQty.ControlGroup(1)
+Gui.Form.txtQty.Event(LostFocus,LostFocus)
+Gui.Form.txtQty.TabStop(True)
+Gui.Form.txtQty.TabIndex(15)
+Gui.Form.lblRefDesignator5.Create(Label,"Qty",True,915,255,0,2850,990,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblRefDesignator6.Create(Label,"Notes",True,1935,255,0,4290,990,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtNotes.Create(TextBox,"",True,1905,300,0,4290,1260,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtNotes.MaxLength(30)
+Gui.Form.txtNotes.DefaultValue("")
+Gui.Form.txtNotes.ControlGroup(1)
+Gui.Form.txtNotes.TabStop(True)
+Gui.Form.txtNotes.TabIndex(16)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.iRowIndex.Declare(Long,-1)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'The user will select a Router before clicking on the Script 3 button. If no router is selected the user will be prompted to select one.
+'Once the user has selected a Router and clicked on the Script 3 button a screen will pop up that allows them to enter in the Cutlist information for the Router.
+'Date: 12/5/17
+'Programmer: WAW,SKC
+
+'check to see if the router header populate hook fires or if the script 3 button hook fires
+f.Intrinsic.Control.If(v.Caller.Hook,=,11010)
+	'set the script 3 text button text
+	v.Passed.000203.set("Cutlist")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,11140)
+	'check to see if the router is blank, if so end the program
+	f.Intrinsic.Control.If(v.Passed.000014,=,"")
+		f.Intrinsic.UI.Msgbox("Please select a Router")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	Gui.Form.ddlSize.AddItem("XS-X Small")
+	Gui.Form.ddlSize.AddItem("S-Small")
+	Gui.Form.ddlSize.AddItem("M-Medium")
+	Gui.Form.ddlSize.AddItem("L-Large")
+	Gui.Form.ddlSize.AddItem("XL-X Large")
+	
+	Gui.Form.ddlSize2.AddItem("XS-X Small")
+	Gui.Form.ddlSize2.AddItem("S-Small")
+	Gui.Form.ddlSize2.AddItem("M-Medium")
+	Gui.Form.ddlSize2.AddItem("L-Large")
+	Gui.Form.ddlSize2.AddItem("XL-X Large")
+
+f.Intrinsic.Control.endif	
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'load the screen
+f.Intrinsic.Control.CallSub(LoadScreen)
+
+'display the screen
+gui.Form..Visible(true)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(Custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Custlist_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sKey.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sRouter.Declare(String)
+
+'make the form invisible
+gui.Form..Visible(false)
+
+F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)
+F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)
+
+'v.Local.sKey.set("ROUTER*!*ROUTER_REV*!*CABLE_PART*!*SIDE*!*REF_DESIGNATOR*!*CONTACT*!*DEJACKET*!*STRIPPER*!*LENGTH*!*SIZE_LABEL*!*USER_FIELD1*!*USER_FIELD2*!*USER_FIELD3*!*USER_FIELD4")
+'F.Data.DataTable.RemoveColumn("GRID", "Delete")
+'F.Data.DataTable.SaveToDB("GRID", "conx","GCG_4265_Cutlist",v.Local.skey, 7) 
+F.Intrinsic.String.Build("Delete From GCG_4265_Cutlist Where Router = '{0}'",V.Local.sRouter,V.Local.sSql)
+F.ODBC.Connection!conx.Execute(V.Local.sSql)
+
+'saving in this manner since saving modified records isn't working when using datatables.
+F.Intrinsic.Control.If(V.DataTable.GRID.RowCount--,>,-1)
+	F.Intrinsic.Control.If(V.DataView.Grid!Grid.Exists,=,True)
+		F.Data.DataView.Close("Grid","Grid")
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Create("GRID","GRID")
+	F.Data.DataView.SetFilter("GRID","GRID","Router <> ' '")
+	F.Data.DataView.ToDataTable("GRID","GRID","Temp")
+	F.Intrinsic.Control.If(V.DataTable.Temp.RowCount--,<>,-1)
+		F.Data.DataTable.SaveToDB("Temp","conx","GCG_4265_Cutlist","Rec_ID*!*ROUTER",256,"REC_ID@!@REC_ID*!*ROUTER@!@ROUTER*!*CABLE_PART@!@CABLE_PART*!*QTY@!@QTY*!*NOTES@!@NOTES*!*REF_DESIGNATOR_A1@!@REF_DESIGNATOR_A1*!*REF_DESIGNATOR_A2@!@REF_DESIGNATOR_A2*!*SIZE_LABEL@!@SIZE_LABEL*!*CONTACT@!@CONTACT*!*DEJACKET@!@DEJACKET*!*STRIPPER@!@STRIPPER*!*LENGTH@!@LENGTH*!*STRIPPER_1@!@STRIPPER_1*!*DEJACKET_1@!@DEJACKET_1*!*CONTACT_1@!@CONTACT_1*!*REF_DESIGNATOR_B1@!@REF_DESIGNATOR_B1*!*REF_DESIGNATOR_B2@!@REF_DESIGNATOR_B2*!*SIZE_LABEL_1@!@SIZE_LABEL_1")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'close connection to the database
+F.ODBC.Connection!conx.Close
+'end the program
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.Custlist_UnLoad.End
+
+Program.Sub.LoadScreen.Start
+F.Intrinsic.Control.SetErrorHandler("LoadScreen_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.ssql.Declare(String)
+v.Local..BulkDeclareString(sRouter, sRev)
+
+
+f.Intrinsic.Control.If(v.DataTable.GRID.exists,=,True)
+	f.Data.DataTable.Close("GRID")
+f.Intrinsic.Control.endif
+
+F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)
+F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)
+
+'query for the router info from the custom table
+f.Intrinsic.String.Build("Select * from GCG_4265_Cutlist where ROUTER = '{0}' Order By Rec_ID",V.Local.sRouter,v.local.ssql)
+F.Data.DataTable.CreateFromSQL("GRID", "conx", v.Local.sSql, True)
+F.Data.DataTable.AddColumn("GRID", "Delete", "Boolean", False)
+
+'create the dataview
+f.data.dataview.create("GRID","GRID")
+
+'hide some columns and format others
+Gui.Form.GsGridControl1.AddGridViewFromDataView("GRID","GRID","GRID")
+'format the grid
+gui.Form.GsGridControl1.SetColumnProperty("GRID","REC_ID","VISIBLE",False)
+gui.Form.GsGridControl1.setcolumnproperty("GRID","ROUTER","visible",false)
+'gui.Form.GsGridControl1.setcolumnproperty("GRID","ROUTER_REV","visible",false)
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","Caption","Cable Part")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","MaxWidth","100")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","Width","100")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","QTY","Caption","Qty")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","QTY","MaxWidth","45")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","QTY","Width","45")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","NOTES","Caption","Notes")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","NOTES","MaxWidth","60")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","NOTES","Width","60")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A1","Caption","Ref Desig. A(Row 1)")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A1","MaxWidth","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A1","Width","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A2","Caption","Ref Desig. A(Row 2)")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A2","MaxWidth","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_A2","Width","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","Caption","Size Label")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","MaxWidth","65")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","Width","65")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","Caption","Contact")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","Caption","Dejacket")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER","Caption","Stripper")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","Caption","Length")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER_1","Caption","Stripper")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER_1","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","STRIPPER_1","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET_1","Caption","Dejacket")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET_1","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET_1","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT_1","Caption","Contact")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT_1","MaxWidth","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT_1","Width","85")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B1","Caption","Ref Desig. B(Row 1)")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B1","MaxWidth","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B1","Width","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B2","Caption","Ref Desig. B(Row 2)")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B2","MaxWidth","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR_B2","Width","125")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL_1","Caption","Size Label")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL_1","MaxWidth","65")
+gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL_1","Width","65")
+
+'set the maxes for the user fields to be a little larger
+
+gui.Form.GsGridControl1.setGridviewProperty("GRID","Editable",FALSE)
+gui.Form.GsGridControl1.setGridviewProperty("GRID","READONLY",TRUE)
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DELETE","READONLY",False)
+gui.Form.GsGridControl1.setcolumnproperty("GRID","DELETE","AllowEdit",True)
+gui.Form.GsGridControl1.MainView("GRID")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadScreen_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(Custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.LoadScreen.End
+
+Program.Sub.cmdSave_Click.Start
+F.Intrinsic.Control.SetErrorHandler("LoadScreen_Err")
+F.Intrinsic.Control.ClearErrors
+
+v.Local.serror.Declare(string)
+v.Local.sCblPart.Declare(string)
+v.Local.i.Declare(long)
+v.Local.iCheck.Declare(long)
+v.Local.sSQL.Declare(String)
+v.Local.skey.Declare(string)
+v.Local.sSize.Declare(String)
+v.Local.sSize1.Declare(String)
+V.Local.iRec_ID.Declare(Long)
+V.Local.sRouterNS.Declare(String)
+V.Local.sRouter.Declare(String)
+v.Local.i.Set(v.DataTable.GRID.ROwcount--)
+V.Local.iRec_ID.Set(V.DataTable.GRID.RowCount)
+
+'making sure cable part number is entered before adding to the grid
+F.Intrinsic.Control.If(V.Screen.Form!txtCablePartNo.Text,=,"")
+	F.Intrinsic.UI.Msgbox("At least the Cable Part# needs to be entered before saving to the grid.","Warning")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'make sure there are no string or blank values in numeric text fields
+f.Intrinsic.Control.If(v.Screen.Form!txtDejacket.Text,=,"")
+	gui.Form.txtDejacket.Text("0")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtLength.Text,=,"")
+	gui.Form.txtlength.Text("0")
+f.Intrinsic.control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtStripper.Text,=,"")
+	gui.Form.txtStripper.Text("0")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtDejacket2.Text,=,"")
+	gui.Form.txtDejacket2.Text("0")
+f.Intrinsic.control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtStripper2.Text,=,"")
+	gui.Form.txtStripper2.Text("0")
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtQty.text,=,"")
+	gui.Form.txtQty.Text("0")
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(v.Screen.Form!ddlSize.Text, =, "XS-X Small")
+	v.Local.sSize.set("XS")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize.Text, =, "S-Small")
+	v.Local.sSize.set("S")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize.Text, =, "M-Medium")
+	v.Local.sSize.set("M")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize.Text, =, "L-Large")
+	v.Local.sSize.set("L")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize.Text, =, "XL-X Large")
+	v.Local.sSize.set("XL")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(v.Screen.Form!ddlSize2.Text, =, "XS-X Small")
+	v.Local.sSize1.set("XS")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize2.Text, =, "S-Small")
+	v.Local.sSize1.set("S")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize2.Text, =, "M-Medium")
+	v.Local.sSize1.set("M")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize2.Text, =, "L-Large")
+	v.Local.sSize1.set("L")
+F.Intrinsic.Control.ElseIf(v.Screen.Form!ddlSize2.Text, =, "XL-X Large")
+	v.Local.sSize1.set("XL")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)
+F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)
+v.Local.sCblPart.Set(v.Screen.Form!txtCablePartNo.Text)
+
+f.Intrinsic.string.Build("select count(PART_WC_OUTSIDE) from V_ROUTER_LINE where LMO = 'M' AND ROUTER = '{0}' AND (PART_WC_OUTSIDE LIKE '{1}%' OR  SORT_CODE LIKE '{1}%')",v.Local.sRouter,v.Local.sCblPart.Trim,v.Local.sSQL)
+f.odbc.Connection!conx.executeandreturn(v.Local.sSQL,v.Local.iCheck)
+f.Intrinsic.control.If(v.Local.iCheck,<,1)
+	F.Intrinsic.UI.Msgbox("Cable Part No. is not part of the Router","Warning")
+	F.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+GUI.Form..Enabled(FALSE)
+F.Intrinsic.Control.If(V.Global.iRowIndex,=,-1)
+	'see if this is the first entry 
+	f.Intrinsic.Control.If(v.Local.i,=,0)
+		f.Intrinsic.Control.If(v.DataTable.GRID(v.Local.i).ROUTER!fieldvaltrim,=,"")
+			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)
+			F.Data.DataTable.SetValue("GRID",0,"REC_ID",V.Local.iRec_ID)
+			F.Data.DataTable.SetValue("GRID",0,"ROUTER",V.Local.sRouter)
+'			F.Data.DataTable.SetValue("GRID",0,"ROUTER",v.Passed.000014)
+'			F.Data.DataTable.SetValue("GRID",0,"ROUTER_REV",v.Passed.000015)
+			F.Data.DataTable.SetValue("GRID",0,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text)
+			F.Data.DataTable.SetValue("GRID",0,"QTY",v.Screen.Form!txtQty.Text)
+			F.Data.DataTable.SetValue("GRID",0,"NOTES",v.Screen.Form!txtNotes.Text)
+			F.Data.DataTable.SetValue("GRID",0,"REF_DESIGNATOR_A1",v.Screen.Form!txtRefDesignaor.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"REF_DESIGNATOR_A2",v.Screen.Form!txtRefDesignaor2.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"REF_DESIGNATOR_B1",v.Screen.Form!txtRefDesignaor3.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"REF_DESIGNATOR_B2",v.Screen.Form!txtRefDesignaor4.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"CONTACT",v.Screen.Form!txtContact.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"DEJACKET",v.Screen.Form!txtDejacket.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"STRIPPER",v.Screen.Form!txtStripper.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"LENGTH",v.Screen.Form!txtLength.Text)
+			F.Data.DataTable.SetValue("GRID",0,"CONTACT_1",v.Screen.Form!txtContact2.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"DEJACKET_1",v.Screen.Form!txtDejacket2.Text)	
+			F.Data.DataTable.SetValue("GRID",0,"STRIPPER_1",v.Screen.Form!txtStripper2.Text)
+			F.Data.DataTable.SetValue("GRID",0,"SIZE_LABEL",v.Local.sSize)	
+			F.Data.DataTable.SetValue("GRID",0,"SIZE_LABEL_1",v.Local.sSize1)
+	
+		f.Intrinsic.Control.Else
+			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)
+			F.Data.DataTable.AddRow("GRID","REC_ID",V.Local.iRec_ID,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Local.sCblPart,"QTY",v.Screen.Form!txtQty.Text,"NOTES",v.Screen.Form!txtNotes.Text,"REF_DESIGNATOR_A1",v.Screen.Form!txtRefDesignaor.Text,"REF_DESIGNATOR_A2",v.Screen.Form!txtRefDesignaor2.Text,"REF_DESIGNATOR_B1",v.Screen.Form!txtRefDesignaor3.Text,"REF_DESIGNATOR_B2",v.Screen.Form!txtRefDesignaor4.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"CONTACT_1",v.Screen.Form!txtContact2.Text,"DEJACKET_1",v.Screen.Form!txtDejacket2.Text,"STRIPPER_1",v.Screen.Form!txtStripper2.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"SIZE_LABEL_1",v.Local.sSize1)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Local.i,=,-1)
+			F.Data.DataTable.AddRow("GRID","REC_ID",1,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Local.sCblPart,"QTY",v.Screen.Form!txtQty.Text,"NOTES",v.Screen.Form!txtNotes.Text,"REF_DESIGNATOR_A1",v.Screen.Form!txtRefDesignaor.Text,"REF_DESIGNATOR_A2",v.Screen.Form!txtRefDesignaor2.Text,"REF_DESIGNATOR_B1",v.Screen.Form!txtRefDesignaor3.Text,"REF_DESIGNATOR_B2",v.Screen.Form!txtRefDesignaor4.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"CONTACT_1",v.Screen.Form!txtContact2.Text,"DEJACKET_1",v.Screen.Form!txtDejacket2.Text,"STRIPPER_1",v.Screen.Form!txtStripper2.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"SIZE_LABEL_1",v.Local.sSize1)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)
+			'otherwise just add a row
+			F.Data.DataTable.AddRow("GRID","REC_ID",V.Local.iRec_ID,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Local.sCblPart,"QTY",v.Screen.Form!txtQty.Text,"NOTES",v.Screen.Form!txtNotes.Text,"REF_DESIGNATOR_A1",v.Screen.Form!txtRefDesignaor.Text,"REF_DESIGNATOR_A2",v.Screen.Form!txtRefDesignaor2.Text,"REF_DESIGNATOR_B1",v.Screen.Form!txtRefDesignaor3.Text,"REF_DESIGNATOR_B2",v.Screen.Form!txtRefDesignaor4.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"CONTACT_1",v.Screen.Form!txtContact2.Text,"DEJACKET_1",v.Screen.Form!txtDejacket2.Text,"STRIPPER_1",v.Screen.Form!txtStripper2.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"SIZE_LABEL_1",v.Local.sSize1)
+		F.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"ROUTER",V.Local.sRouter)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"QTY",v.Screen.Form!txtQty.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"NOTES",v.Screen.Form!txtNotes.Text)
+			
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"REF_DESIGNATOR_A1",v.Screen.Form!txtRefDesignaor.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"REF_DESIGNATOR_A2",v.Screen.Form!txtRefDesignaor2.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"REF_DESIGNATOR_B1",v.Screen.Form!txtRefDesignaor3.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"REF_DESIGNATOR_B2",v.Screen.Form!txtRefDesignaor4.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"CONTACT",v.Screen.Form!txtContact.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"DEJACKET",v.Screen.Form!txtDejacket.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"STRIPPER",v.Screen.Form!txtStripper.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"LENGTH",v.Screen.Form!txtLength.Text)
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"CONTACT_1",v.Screen.Form!txtContact2.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"DEJACKET_1",v.Screen.Form!txtDejacket2.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"STRIPPER_1",v.Screen.Form!txtStripper2.Text)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"SIZE_LABEL_1",v.Local.sSize1)	
+	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"SIZE_LABEL",v.Local.sSize)	
+
+F.Intrinsic.Control.EndIf
+
+V.Global.iRowIndex.Set(-1)
+
+'call the clear sub
+f.Intrinsic.Control.CallSub(cmdclear_click)
+GUI.Form..Enabled(true)
+GUI.Form..SetFocus
+
+F.Intrinsic.Control.Label("LoadScreen_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.bRet.Declare(Boolean)
+v.Local.sValue.Declare(String)
+v.Local.sValue.Set(v.Screen.Form![v.Args.ControlName].text)
+
+F.Intrinsic.Math.IsNumeric(v.Local.sValue, v.Local.bRet)
+
+F.Intrinsic.Control.If(v.Local.sValue.Trim, !=, "")
+	F.Intrinsic.Control.If(v.Local.bRet, =, False)
+		F.Intrinsic.UI.Msgbox("Value needs to be Numeric!", "Invalid Data")
+		gui.Form.[v.Args.ControlName].Text("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(Custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.LostFocus.End
+
+Program.Sub.cmdClear_Click.Start
+F.Intrinsic.Control.SetErrorHandler("_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clear all the textboxes
+gui.Form..ClearGroup(1)
+v.Global.iRowIndex.Set(-1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.cmdDelete_Click.Start
+F.Intrinsic.Control.SetErrorHandler("_Err")
+F.Intrinsic.Control.ClearErrors
+
+v.Local..BulkDeclareString(sError, sFilter, ssql, skey)
+v.Local.i.Declare(long)
+v.Local.iHandle.Declare(long)
+V.Local.i.Set(v.dataTable.GRID.RowCount--)'
+
+'loop through the datatable
+gui.Form.GsGridControl1.SuspendLayout
+'F.Intrinsic.Control.For(v.Local.i,v.DataTable.GRID.RowCount--,0,-1)
+'	'check to see if selected
+'	f.Intrinsic.Control.If(v.DataTable.GRID(v.Local.I).DELETE.fieldvaltrim,=,"True")
+'		f.Data.DataTable.DeleteRow("GRID",v.Local.i)
+'	f.Intrinsic.Control.EndIf
+'f.Intrinsic.Control.Next(v.Local.I)
+F.Intrinsic.Control.For(v.Local.i,v.dataview.GRID!GRID.RowCount--,0,-1)
+	'check to see if selected
+	f.Intrinsic.Control.If(v.Dataview.GRID!GRID(v.Local.I).DELETE.fieldvaltrim,=,"True")
+		f.Data.DataTable.DeleteRow("GRID",Variable.DataView.Grid!GRID(v.Local.I).DataTableIndex)
+		f.Data.DataTable.AcceptChanges("GRID")
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Next(v.Local.I)
+v.Global.iRowIndex.Set(-1)
+
+gui.Form.GsGridControl1.ResumeLayout
+
+'call the clear sub
+f.Intrinsic.Control.CallSub(cmdclear_click)
+
+gui.Form..Visible(true)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdDelete_Click.End
+
+Program.Sub.GsGridControl1_RowClick.Start
+F.Intrinsic.Control.SetErrorHandler("GsGridControl1_RowCellClick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.bRet.Declare(Boolean)
+v.Local.bRet1.Declare(Boolean)
+v.Local..BulkDeclareString(sSerial, sFilter)
+
+F.Intrinsic.Control.If(v.Args.Column, =, "Delete")
+	F.Intrinsic.Control.If(v.DataTable.Grid(v.Args.RowHandle).Delete!Fieldval, =, False)
+		F.Data.DataTable.SetValue("GRID", v.Args.RowHandle, "DELETE", True)
+	F.Intrinsic.Control.Else
+		F.Data.DataTable.SetValue("GRID", v.Args.RowHandle, "DELETE", False)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.EndIf
+
+V.Global.iRowIndex.Set(V.Args.RowHandle)
+
+F.Intrinsic.String.Build("CABLE_PART = '{0}'", v.DataTable.GRID(v.Args.RowIndex).CABLE_PART!FieldValTrim, v.Local.sFilter)
+F.Data.DataView.Create("GRID", "GRID2", 22, v.Local.sFilter,)
+
+'move data to the textboxes
+Gui.Form.txtRec_ID.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).REC_ID!FieldValLong)
+Gui.Form.txtCablePartNo.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).CABLE_PART!FieldValTrim)
+Gui.Form.txtQty.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).QTY!FieldValTrim)
+Gui.Form.txtNotes.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).NOTES!FieldValTrim)
+Gui.Form.txtContact.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).CONTACT!FieldValTrim)
+Gui.Form.txtDejacket.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).DEJACKET!FieldValTrim)
+Gui.Form.txtContact2.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).CONTACT_1!FieldValTrim)
+Gui.Form.txtDejacket2.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).DEJACKET_1!FieldValTrim)
+Gui.Form.txtLength.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).LENGTH!FieldValTrim)
+Gui.Form.txtRefDesignaor.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).REF_DESIGNATOR_A1!FieldValTrim)
+Gui.Form.txtRefDesignaor2.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).REF_DESIGNATOR_A2!FieldValTrim)
+Gui.Form.txtRefDesignaor3.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).REF_DESIGNATOR_B1!FieldValTrim)
+Gui.Form.txtRefDesignaor4.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).REF_DESIGNATOR_B2!FieldValTrim)
+
+
+
+F.Intrinsic.Control.If(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim, =, "XS")
+	Gui.Form.ddlSize.FindItem("XS-X Small", v.Local.bRet)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim, =, "S")
+	Gui.Form.ddlSize.FindItem("S-Small", v.Local.bRet)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim, =, "M")
+	Gui.Form.ddlSize.FindItem("M-Medium", v.Local.bRet)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim, =, "L")
+	Gui.Form.ddlSize.FindItem("L-Large", v.Local.bRet)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim, =, "XL")
+	Gui.Form.ddlSize.FindItem("XL-X Large", v.Local.bRet)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim, =, "XS")
+	Gui.Form.ddlSize2.FindItem("XS-X Small", v.Local.bRet1)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim, =, "S")
+	Gui.Form.ddlSize2.FindItem("S-Small", v.Local.bRet1)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim, =, "M")
+	Gui.Form.ddlSize2.FindItem("M-Medium", v.Local.bRet1)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim, =, "L")
+	Gui.Form.ddlSize2.FindItem("L-Large", v.Local.bRet1)
+F.Intrinsic.Control.ElseIf(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim, =, "XL")
+	Gui.Form.ddlSize2.FindItem("XL-X Large", v.Local.bRet1)
+F.Intrinsic.Control.EndIf
+
+gui.Form.ddlSize.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL!FieldValTrim)
+gui.Form.ddlSize2.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).SIZE_LABEL_1!FieldValTrim)
+gui.Form.txtStripper.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).STRIPPER!FieldValTrim)
+gui.Form.txtStripper2.Text(v.Dataview.GRID!GRID(V.Args.RowHandle).STRIPPER_1!FieldValTrim)
+
+
+F.Data.DataView.Close("GRID", "GRID2")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GsGridControl1_RowCellClick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.GsGridControl1_RowClick.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$WAW$}$1/2/2017 12:40:09 AM$}$False
+Program.Sub.Comments.End
