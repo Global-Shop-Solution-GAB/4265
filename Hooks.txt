@@ -1,0 +1,6 @@
+GCG_4265_Cutlist.g2u goes on hooks:
+11010 - Populate Router Header
+11140 - Script 3 button Router Header
+GCG_4265_ExportData.g2c goes on hooks:
+15760 - Script 1 on the Gui
+15710 - Populate on teh Gui
