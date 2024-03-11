@@ -1,0 +1,245 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.iRowIndex.Declare(Long,-1)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'The user will select a Router before clicking on the Script 3 button. If no router is selected the user will be prompted to select one.
+'Once the user has selected a Router and clicked on the Script 3 button a screen will pop up that allows them to enter in the Cutlist information for the Router.
+'Date: 12/5/17
+'Programmer: WAW,SKC
+
+'check to see if the router header populate hook fires or if the script 3 button hook fires
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+f.Intrinsic.Control.If(v.Caller.Hook,=,16090)
+
+
+	
+	f.Intrinsic.Control.If(v.Passed.009001,=,001801)
+			f.Intrinsic.Control.CallSub(RunBI)
+			v.passed.cancel.Set(1)
+	f.Intrinsic.Control.Else
+			f.Intrinsic.Control.CallSub(Unload)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Else
+	
+	f.Intrinsic.Control.CallSub(Unload)
+	
+f.Intrinsic.Control.endif	
+
+
+f.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_PickList.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(Custlist_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close connection to the database
+F.ODBC.Connection!conx.Close
+'end the program
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_PickList.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.UnLoad.End
+
+Program.Sub.RunBI.Start
+
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sVals.Declare(String)
+V.Local.sJobSuffix.Declare(String)
+V.Local.iRPTID.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sDate.Declare(String)
+V.local.iLogID.Declare(Long)
+V.local.icount.Declare(Long)
+V.local.iBIRUNID.Declare(Long)
+
+
+Function.Intrinsic.UI.InvokeWaitDialog( "Compiling data","Running PreProc" )
+
+F.global.BI.GetIDFromName("GCG_4265_PickList.rpt",V.Local.iRPTID)
+F.Global.BI.GetRunID(V.Local.iBIRUNID)
+F.Global.BI.StartLogging(V.Local.iBIRUNID,V.Local.iRPTID,-1,"Material Pick List",V.Local.iLogID)
+
+f.Intrinsic.String.Build("Delete from GCG_4265_PICKLIST where TERMINAL_NO = '{0}'",v.Caller.Terminal,v.Local.sSQL)
+f.odbc.Connection!conx.Execute(v.Local.sSQL)
+
+f.Intrinsic.String.Build("Select job + suffix as JS, job,suffix,seq,part,Description,hours_estimated as est_hrs,hours_actual as Act_hrs, UM,date_due from v_job_operations where job + suffix in (Select Distinct job + suffix from V_PRT_MAT_PICK_LIST where TERMINAL_NO = '{0}') and LMO = 'M' and seq < '995000'",v.Caller.Terminal,v.Local.sSQL)
+f.data.DataTable.CreateFromSQL("BIDT","conx",v.Local.sSQL)
+
+f.Intrinsic.String.Build("Select distinct job + suffix as JS, router, customer, customer_name,job_qty,job_desc from V_PRT_MAT_PICK_LIST where TERMINAL_NO = '{0}'",v.Caller.Terminal,v.Local.sSQL)
+f.Data.DataTable.CreateFromSQL("TempDT","conx",v.Local.sSQL)
+
+
+f.Data.Dictionary.CreateFromSQL("TempDict","conx","Select distinct job + suffix as JS, DATE_DUE from V_JOB_HEADER where date_closed = '1900-01-01'")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","due_date","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","due_date")
+f.Data.Dictionary.Close("TempDict")
+
+f.intrinsic.Control.for(v.Local.icount,0,v.DataTable.BIDT.RowCount--,1)
+	v.Local.sDate.Set(v.Datatable.BIDT(v.Local.icount).due_date!fieldValTrim)
+	f.Intrinsic.String.Split(v.Local.sDate," ",v.Local.sDate)
+	f.Data.DataTable.SetValue("BIDT",v.Local.icount,"due_date",v.Local.sDate(0))
+	v.Local.sDate.Redim(0,0)
+f.Intrinsic.Control.Next(v.Local.icount)
+
+'f.Data.DataTable.AddColumn("BIDT","router","string")
+'f.Data.DataTable.SetValue("BIDT",-1,"router",v.DataTable.TempDT(0).router!fieldval)
+
+'f.Data.DataTable.AddColumn("BIDT","customer","string")
+'f.Data.DataTable.SetValue("BIDT",-1,"customer",v.DataTable.TempDT(0).customer!fieldval)
+
+'f.Data.DataTable.AddColumn("BIDT","customer_name","string")
+'f.Data.DataTable.SetValue("BIDT",-1,"customer_name",v.DataTable.TempDT(0).customer_name!fieldval)
+
+'f.Data.DataTable.AddColumn("BIDT","job_qty","string")
+'f.Data.DataTable.SetValue("BIDT",-1,"job_qty",v.DataTable.TempDT(0).job_qty!fieldval)
+
+'f.Data.DataTable.AddColumn("BIDT","job_desc","string")
+'f.Data.DataTable.SetValue("BIDT",-1,"job_desc",v.DataTable.TempDT(0).job_desc!fieldval)
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "JS", "router")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","router","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","router")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "JS", "customer")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","customer","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","customer")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "JS", "customer_name")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","customer_name","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","customer_name")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "JS", "job_desc")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","job_desc","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","job_desc")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "JS", "job_qty")
+f.Data.Dictionary.SetDefaultReturn("TempDict",0)
+f.Data.DataTable.AddColumn("BIDT","job_qty","Float")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","JS","job_qty")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.DataTable.Close("TempDT")
+
+f.Data.datatable.AddExpressionColumn("BIDT","RS","String","Router + Part")
+
+
+'f.data.DataTable.CreateFromSql("BIDT","conx",v.Local.sSQL)
+
+
+'f.Intrinsic.String.Build("Select Distinct job, suffix, seq, router, customer, customer_name,job_qty,job_desc,part,est_hrs,UM,Description,Act_hrs,Date_due,router + part as RS from V_PRT_MAT_PICK_LIST where TERMINAL_NO = '{0}' and RTRIM(Description) <> ''",v.Caller.Terminal,v.Local.sSQL)
+
+'f.data.DataTable.CreateFromSql("BIDT","conx",v.Local.sSQL)
+
+f.Data.Dictionary.CreateFromSQL("TempDict","conx","Select distinct Part,TEXT_INFO1 from V_INVENTORY_MST2")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","TEXT_INFO1","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","Part","TEXT_INFO1")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.CreateFromSQL("TempDict","conx","Select distinct Part,MFG_PART from V_INV_CROSS_REF")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","MFG_PART","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","Part","MFG_PART")
+f.Data.Dictionary.Close("TempDict")
+
+
+f.Data.Datatable.CreateFromSQL("TempDT","conx","Select distinct router + PART_WC_OUTSIDE as RS,SORT_CODE,RUN_TIME_D6,LINE_ROUTER from V_ROUTER_LINE where LMO = 'M'")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "RS", "SORT_CODE")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","SORT_CODE","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","RS","SORT_CODE")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "RS", "LINE_ROUTER")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","LINE_ROUTER","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","RS","LINE_ROUTER")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.Dictionary.createFromDataTable("TempDict","TempDT", "RS", "RUN_TIME_D6")
+f.Data.Dictionary.SetDefaultReturn("TempDict",0)
+f.Data.DataTable.AddColumn("BIDT","RUN_TIME_D6","Float")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","RS","RUN_TIME_D6")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.DataTable.Close("TempDT")
+
+f.Data.Dictionary.CreateFromSQL("TempDict","conx","Select distinct Part,BIN from V_INVENTORY_MSTR")
+f.Data.Dictionary.SetDefaultReturn("TempDict","")
+f.Data.DataTable.AddColumn("BIDT","BIN","String")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","Part","BIN")
+f.Data.Dictionary.Close("TempDict")
+
+f.Data.datatable.AddExpressionColumn("BIDT","PartBin","String","Part + Bin")
+
+
+f.Data.Dictionary.CreateFromSQL("TempDict","conx","Select distinct Part + bin as PartBin, Quantity from V_ITEM_MASTER")
+f.Data.Dictionary.SetDefaultReturn("TempDict",0)
+f.Data.DataTable.AddColumn("BIDT","ONHAND_QTY","Float")
+f.Data.DataTable.FillFromDictionary("BIDT","TempDict","PartBin","ONHAND_QTY")
+f.Data.Dictionary.Close("TempDict")
+
+F.Data.DataTable.RemoveColumn("BIDT","JS")
+F.Data.DataTable.RemoveColumn("BIDT","RS")
+F.Data.DataTable.RemoveColumn("BIDT","PartBin")
+
+
+
+f.Data.DataTable.AddColumn("BIDT","TERMINAL_NO","String")
+f.Data.DataTable.SetValue("BIDT",-1,"TERMINAL_NO",v.Caller.Terminal)
+
+F.data.DataTable.SaveToDB("BIDT","conx","GCG_4265_PICKLIST","TERMINAL_NO",128)
+
+Function.Intrinsic.UI.CloseWaitDialog
+
+f.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}",v.Caller.Terminal,v.Passed.BIP_NEWPAGE,v.Passed.BIP_Program,v.Passed.BIP_Comments,v.Local.sVals)
+
+F.Global.BI.RunReportPreProcessor(V.Local.iBIRUNID,V.Local.iLogID,"TERMINAL*!*NEWPAGE*!*PROGRAM*!*Comments",v.local.sVals,"",16,True,"",-1,"",-1,"","",V.Local.iBIRUNID)
+
+
+
+
+Program.Sub.RunBI.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$WAW$}$1/2/2017 12:40:09 AM$}$False
+Program.Sub.Comments.End
