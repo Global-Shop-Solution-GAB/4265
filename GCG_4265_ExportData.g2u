@@ -1,0 +1,232 @@
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sret.Declare(string)
+
+'This program will be called from the Script 1 button in the GUI. 
+'The user must select a WO before doing this. 
+'Once they have, the quantity for the WO will be used to calculate the number of times a row will be written in the export file. 
+'The number of labels printed for each Cutlist row will be the quantity on the WO. 
+'If there are 10 cutlist rows for the router, and their is 5 qty on the WO, there will be 50 labels printed. 
+'Created For RoGar on 1/6/2017
+'By SKC Team SkyNet
+
+F.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN, v.Ambient.PUser, v.Ambient.PPass)
+F.Intrinsic.Control.SelectCase(v.Caller.Hook)
+	F.Intrinsic.Control.Case(15770)
+	'Script 2 hook
+		F.Intrinsic.Control.CallSub(GetData)
+		F.Intrinsic.Control.CallSub(createfile)
+		F.Intrinsic.UI.Msgbox("Export Done!", "Complete")
+	F.Intrinsic.Control.Case(15710)
+		v.Passed.000020.Set("Export Data")
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.CallSub(unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.GetData.Start
+F.Intrinsic.Control.SetErrorHandler("GetData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local..BulkDeclareString(sJob, sSuffix, sSql, sExtID,sData, sRouter)
+v.Local.iCount.Declare(Long)
+v.Local.sRouter.Redim(0,1)
+v.Local.sJob.Set(v.Passed.009990)
+v.Local.sSuffix.Set(v.Passed.009991)
+
+'get the data for the Export File based on the Job and Suffix
+F.Intrinsic.String.Build("Select Qty_Order, Router,Customer,Location From Job_Header where Job = '{0}' and Suffix = '{1}'", v.Local.sJob, v.Local.sSuffix, v.Local.sSql)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSql, v.Local.sData)
+F.Intrinsic.String.Split(v.Local.sData, "*!*", v.Local.sData)
+F.Intrinsic.String.RPad(v.Local.sData(1), " ", 20, V.Local.sRouter)
+f.intrinsic.String.Build("Select distinct Router, REF_DESIGNATOR_A1 AS REF_DESIG_1,REF_DESIGNATOR_A2 AS REF_DESIG_2,SIZE_LABEL From GCG_4265_Cutlist where Router = '{0}' and REF_DESIGNATOR_A1 +  REF_DESIGNATOR_A2 <> ''", v.Local.sRouter, v.Local.sSql)
+F.Data.DataTable.CreateFromSQL("CutList", "conx",v.Local.sSql, True)  
+f.intrinsic.String.Build("Select distinct Router, REF_DESIGNATOR_B1 AS REF_DESIG_1,REF_DESIGNATOR_B2 AS REF_DESIG_2,SIZE_LABEL_1 AS SIZE_LABEL From GCG_4265_Cutlist where Router = '{0}' and REF_DESIGNATOR_B1 + REF_DESIGNATOR_B2 <> ''", v.Local.sRouter, v.Local.sSql)
+F.Data.DataTable.CreateFromSQL("TempCutList", "conx",v.Local.sSql, True) 
+f.Data.DataTable.Merge("TempCutList","CutList",true,2)
+f.Data.DataTable.Close("TempCutList")
+f.Intrinsic.String.build("Select external_id From V_CUST_FORM_INFO where customer = '{0}'", v.Local.sData(2), v.Local.sSql)
+F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSql, v.Local.sExtID)
+
+F.Data.DataTable.AddColumn("CutList", "Qty", "Long", v.Local.sData(0).Long)
+F.Data.DataTable.AddColumn("CutList", "ID", "String", v.Local.sExtID)
+F.Data.DataTable.AddColumn("CutList", "Loc", "String", v.Local.sData(3))
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GetData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.GetData.End
+
+Program.Sub.CreateFile.Start
+F.Intrinsic.Control.SetErrorHandler("CreateFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local..BulkDeclareString(sSmallData, sLData,sXSData,sMData,sXLData, sSmallFile,sXSFile, sMFile, sLFile,sXLFile,sDateCode, sEC)
+v.Local..BulkDeclareLong(iRet, iCount, iYear,iInnerCount)
+v.Local.dStartDate.Declare(Date)
+V.Local.sRouter.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuffix.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iCheck.Declare(long)
+v.Local.sJob.Set(v.Passed.009990)
+v.Local.sSuffix.Set(v.Passed.009991)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Date.Year(v.Ambient.Date, v.Local.iYear)
+F.Intrinsic.String.Build("1/1/{0}",v.Local.iYear, v.Local.dStartDate)
+F.Intrinsic.Date.DateDiff("WW",v.Local.dStartDate, v.Ambient.Date, v.Local.iRet)
+F.Intrinsic.Math.Add(1, v.Local.iRet, v.Local.iRet)
+F.Intrinsic.String.Right(v.Local.iYear, 2, v.Local.sDateCode)
+F.Intrinsic.String.Build("{0}{1}", v.Local.iRet, v.Local.sDateCode, v.Local.sDateCode)
+F.Intrinsic.String.LPad(v.Local.sDateCode, "0", 4, v.Local.sDateCode)
+
+F.Intrinsic.String.Build("Select Count(DATECODE) FROM GCG_4265_DATECODE WHERE JOB = '{0}' and suffix = '{1}'",v.Local.sJob,v.Local.sSuffix,v.Local.sSQL)
+f.odbc.Connection!conx.ExecuteAndReturn(v.Local.sSQL,v.Local.iCheck)
+
+f.Intrinsic.Control.If(v.Local.iCheck,>,0)
+	F.Intrinsic.UI.Msgbox("Date Code Already exists for the job. Do you wish to update the Date Code? Click no to stop the export.","Date Code Warning!!!",4,V.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,=,6)
+		F.Intrinsic.String.Build("Update GCG_4265_DATECODE Set DATECODE = '{2}' WHERE JOB = '{0}' and suffix = '{1}'",v.Local.sJob,v.Local.sSuffix,v.Local.sDateCode,v.Local.sSQL)
+		f.odbc.Connection!conx.Execute(V.Local.sSQL)
+	f.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(unload)
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("INSERT INTO GCG_4265_DATECODE VALUES ('{0}','{1}','{2}')",v.Local.sJob,v.Local.sSuffix,v.Local.sDateCode,v.Local.sSQL)
+	f.odbc.Connection!conx.Execute(V.Local.sSQL)
+f.Intrinsic.Control.EndIf
+
+'Create the 2 files on for small another for Reg.
+F.Intrinsic.Control.For(v.Local.iCount, 0, v.DataTable.CutList.RowCount--, 1)
+	F.Intrinsic.Control.If(v.DataTable.CutList(v.Local.iCount).Loc!FieldvalTrim, =, "")
+		v.Local.sEC.Set("EC")
+	F.Intrinsic.Control.Else
+		v.Local.sEC.Set(v.DataTable.CutList(v.Local.iCount).Loc!FieldvalTrim)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.For(v.Local.iInnerCount,1,v.DataTable.CutList(v.Local.iCount).Qty!FieldValLong,1)
+		F.Intrinsic.Control.SelectCase(v.DataTable.CutList(v.Local.iCount).Size_Label!FieldvalTrim)
+			F.Intrinsic.Control.Case("S")
+				F.Intrinsic.String.Left(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,17,V.Local.sRouter)
+				F.Intrinsic.String.Right(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,3,V.Local.sRev)
+				F.Intrinsic.String.Build("{0},{8},{1},{2}/{3},{4} {5} {6}{7}", v.Local.sSmallData,V.DataTable.CutList(v.Local.iCount).REF_DESIG_2!FieldvalTrim,V.Local.sRouter.trim,V.Local.sRev.Trim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,V.DataTable.CutList(v.Local.iCount).REF_DESIG_1!FieldvalTrim,v.Local.sSmallData)
+			F.Intrinsic.Control.Case("XS")
+				F.Intrinsic.String.Left(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,17,V.Local.sRouter)
+				F.Intrinsic.String.Right(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,3,V.Local.sRev)
+				F.Intrinsic.String.Build("{0},{8},{1},{2}/{3},{4} {5} {6}{7}", v.Local.sXSData,V.DataTable.CutList(v.Local.iCount).REF_DESIG_2!FieldvalTrim,V.Local.sRouter.trim,V.Local.sRev.Trim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,V.DataTable.CutList(v.Local.iCount).REF_DESIG_1!FieldvalTrim,v.Local.sXSData)
+			F.Intrinsic.Control.Case("M")
+				F.Intrinsic.String.Left(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,17,V.Local.sRouter)
+				F.Intrinsic.String.Right(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,3,V.Local.sRev)
+				F.Intrinsic.String.Build("{0},{8},{1},{2}/{3},{4} {5} {6}{7}", v.Local.sMdata,V.DataTable.CutList(v.Local.iCount).REF_DESIG_2!FieldvalTrim,V.Local.sRouter.trim,V.Local.sRev.Trim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,V.DataTable.CutList(v.Local.iCount).REF_DESIG_1!FieldvalTrim,v.Local.sMdata)
+			F.Intrinsic.Control.Case("L")
+				F.Intrinsic.String.Left(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,17,V.Local.sRouter)
+				F.Intrinsic.String.Right(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,3,V.Local.sRev)
+				F.Intrinsic.String.Build("{0},{8},{1},{2}/{3},{4} {5} {6}{7}", v.Local.sLData,V.DataTable.CutList(v.Local.iCount).REF_DESIG_2!FieldvalTrim,V.Local.sRouter.trim,V.Local.sRev.Trim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,V.DataTable.CutList(v.Local.iCount).REF_DESIG_1!FieldvalTrim,v.Local.sLdata)
+			F.Intrinsic.Control.Case("XL")
+				F.Intrinsic.String.Left(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,17,V.Local.sRouter)
+				F.Intrinsic.String.Right(V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,3,V.Local.sRev)
+				F.Intrinsic.String.Build("{0},{8},{1},{2}/{3},{4} {5} {6}{7}", v.Local.sXLData,V.DataTable.CutList(v.Local.iCount).REF_DESIG_2!FieldvalTrim,V.Local.sRouter.trim,V.Local.sRev.Trim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,V.DataTable.CutList(v.Local.iCount).REF_DESIG_1!FieldvalTrim,v.Local.sXLdata)			
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Next(v.Local.iInnerCount)
+F.Intrinsic.Control.Next(v.Local.iCount)
+
+'Save Files
+f.Intrinsic.Control.If(v.Passed.009991.Trim,=,"")
+	F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}S.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sSmallFile)
+	F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}XS.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sXSFile)
+	F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}M.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sMFile)
+	F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}L.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sLFile)
+	F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}XL.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sXLFile)
+f.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("\\{2}\cbllabel\CBL{0}_{1}S.txt", v.Passed.009990,v.Passed.009991,v.Ambient.GSSServer, v.Local.sSmallFile)
+	F.Intrinsic.String.Build("\\{2}\cbllabel\CBL{0}_{1}XS.txt", v.Passed.009990,v.Passed.009991,v.Ambient.GSSServer, v.Local.sXSFile)
+	F.Intrinsic.String.Build("\\{2}\cbllabel\CBL{0}_{1}M.txt", v.Passed.009990,v.Passed.009991,v.Ambient.GSSServer, v.Local.sMFile)
+	F.Intrinsic.String.Build("\\{2}\cbllabel\CBL{0}_{1}L.txt", v.Passed.009990,v.Passed.009991,v.Ambient.GSSServer, v.Local.sLFile)
+	F.Intrinsic.String.Build("\\{2}\cbllabel\CBL{0}_{1}XL.txt", v.Passed.009990,v.Passed.009991,v.Ambient.GSSServer, v.Local.sXLFile)
+
+f.Intrinsic.Control.EndIf
+
+
+'''F.Intrinsic.String.Build("\\{1}\cbllabel\CBL{0}L.txt", v.Passed.009990,v.Ambient.GSSServer, v.Local.sRegFile)
+f.Intrinsic.Control.If(v.Local.sSmallData.Trim,<>,"")
+	F.Intrinsic.File.String2File(v.Local.sSmallFile, v.Local.sSmallData)
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.If(v.Local.sXSData.Trim,<>,"")
+	F.Intrinsic.File.String2File(v.Local.sXSFile, v.Local.sXSData)
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.If(v.Local.sMdata.Trim,<>,"")
+	F.Intrinsic.File.String2File(v.Local.sMFile, v.Local.sMdata)
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.If(v.Local.sLData.Trim,<>,"")
+	F.Intrinsic.File.String2File(v.Local.sLFile, v.Local.sLData)
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.If(v.Local.sXLData.Trim,<>,"")
+	F.Intrinsic.File.String2File(v.Local.sXLFile, v.Local.sXLData)
+f.Intrinsic.Control.EndIf
+
+
+
+
+
+'F.Intrinsic.File.String2File(v.Local.sRegFile, v.Local.sRegData)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CreateFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.CreateFile.End
+
+Program.Sub.unload.Start
+F.Intrinsic.Control.SetErrorHandler("unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.unload.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$1/6/2017 7:36:16 AM$}$False
+Program.Sub.Comments.End
