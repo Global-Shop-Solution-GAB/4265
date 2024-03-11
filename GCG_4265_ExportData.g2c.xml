@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>127</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>127</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>127</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>'This program will be called from the Script 1 button in the GUI. </string>
+        <string>'The user must select a WO before doing this. </string>
+        <string>'Once they have, the quantity for the WO will be used to calculate the number of times a row will be written in the export file. </string>
+        <string>'The number of labels printed for each Cutlist row will be the quantity on the WO. </string>
+        <string>'If there are 10 cutlist rows for the router, and their is 5 qty on the WO, there will be 50 labels printed. </string>
+        <string>'Created For RoGar on 1/6/2017</string>
+        <string>'By SKC Team SkyNet</string>
+        <string>v.Local.sret.Declare(string)</string>
+        <string>F.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN, v.Ambient.PUser, v.Ambient.PPass)</string>
+        <string>F.Intrinsic.Control.SelectCase(v.Caller.Hook)</string>
+        <string>	F.Intrinsic.Control.Case(15760)</string>
+        <string>	'Script 1 hook</string>
+        <string>		F.Intrinsic.Control.CallSub(GetData)</string>
+        <string>		F.Intrinsic.Control.CallSub(createfile)</string>
+        <string>		F.Intrinsic.UI.Msgbox("Export Done!", "Complete")</string>
+        <string>	F.Intrinsic.Control.Case(15710)</string>
+        <string>		v.Passed.000016.Set("Export Data")</string>
+        <string>F.Intrinsic.Control.EndSelect</string>
+        <string>F.Intrinsic.Control.CallSub(unload)</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.GetData.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("GetData_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local..BulkDeclareString(sJob, sSuffix, sSql, sData, sRouter)</string>
+        <string>v.Local.iCount.Declare(Long)</string>
+        <string>v.Local.sRouter.Redim(0,1)</string>
+        <string>v.Local.sJob.Set(v.Passed.009990)</string>
+        <string>v.Local.sSuffix.Set(v.Passed.009991)</string>
+        <string>'get the data for the Export File based on the Job and Suffix</string>
+        <string>F.Intrinsic.String.Build("Select Qty_Order, Router,Customer,Location From Job_Header where Job = '{0}' and Suffix = '{1}'", v.Local.sJob, v.Local.sSuffix, v.Local.sSql)</string>
+        <string>F.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSql, v.Local.sData)</string>
+        <string>F.Intrinsic.String.Split(v.Local.sData, "*!*", v.Local.sData)</string>
+        <string>F.Intrinsic.String.RPad(v.Local.sData(1), " ", 20, v.Local.sData(1))</string>
+        <string>F.Intrinsic.String.Left(v.Local.sData(1), 17, v.Local.sRouter(0))</string>
+        <string>F.Intrinsic.String.Right(v.Local.sData(1), 3, v.Local.sRouter(1))</string>
+        <string>F.Intrinsic.String.Build("Select * From GCG_4265_Cutlist where Router = '{0}' and Router_Rev = '{1}'", v.Local.sRouter(0), v.Local.sRouter(1), v.Local.sSql)</string>
+        <string>F.Data.DataTable.CreateFromSQL("CutList", "conx",v.Local.sSql, True)  </string>
+        <string>F.Data.DataTable.AddColumn("CutList", "Qty", "Long", v.Local.sData(0).Long)</string>
+        <string>F.Data.DataTable.AddColumn("CutList", "ID", "String", v.Local.sData(2))</string>
+        <string>F.Data.DataTable.AddColumn("CutList", "Loc", "String", v.Local.sData(3))</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("GetData_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.GetData.End</string>
+        <string />
+        <string>Program.Sub.CreateFile.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("CreateFile_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local..BulkDeclareString(sSmallData, sRegData, sSmallFile, sRegFile, sDateCode, sEC)</string>
+        <string>v.Local..BulkDeclareLong(iRet, iCount, iYear,iInnerCount)</string>
+        <string>v.Local.dStartDate.Declare(Date)</string>
+        <string>F.Intrinsic.Date.Year(v.Ambient.Date, v.Local.iYear)</string>
+        <string>F.Intrinsic.String.Build("1/1/{0}",v.Local.iYear, v.Local.dStartDate)</string>
+        <string>F.Intrinsic.Date.DateDiff("WW",v.Local.dStartDate, v.Ambient.Date, v.Local.iRet)</string>
+        <string>F.Intrinsic.Math.Add(1, v.Local.iRet, v.Local.iRet)</string>
+        <string>F.Intrinsic.String.Right(v.Local.iYear, 2, v.Local.sDateCode)</string>
+        <string>F.Intrinsic.String.Build("{0}{1}", v.Local.iRet, v.Local.sDateCode, v.Local.sDateCode)</string>
+        <string>F.Intrinsic.String.LPad(v.Local.sDateCode, "0", 4, v.Local.sDateCode)</string>
+        <string>'Create the 2 files on for small another for Reg.</string>
+        <string>F.Intrinsic.Control.For(v.Local.iCount, 0, v.DataTable.CutList.RowCount--, 1)</string>
+        <string>	F.Intrinsic.Control.If(v.DataTable.CutList(v.Local.iCount).Loc!FieldvalTrim, =, "")</string>
+        <string>		v.Local.sEC.Set("EC")</string>
+        <string>	F.Intrinsic.Control.Else</string>
+        <string>		v.Local.sEC.Set(v.DataTable.CutList(v.Local.iCount).Loc!FieldvalTrim)</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>	F.Intrinsic.Control.For(v.Local.iInnerCount,0,v.DataTable.CutList(v.Local.iCount).Qty!FieldValLong,1)</string>
+        <string>		F.Intrinsic.Control.SelectCase(v.DataTable.CutList(v.Local.iCount).Size_Label!FieldvalTrim)</string>
+        <string>			F.Intrinsic.Control.Case("S")</string>
+        <string>				F.Intrinsic.String.Build("{0},,{1},{2}/{3},{4} {5} {6}{7}", v.Local.sSmallData, V.DataTable.CutList(v.Local.iCount).Ref_Designator!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).Router_Rev!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,v.Local.sSmallData)</string>
+        <string>			F.Intrinsic.Control.Case("R")</string>
+        <string>				F.Intrinsic.String.Build("{0},,{1},{2}/{3},{4} {5} {6}{7}", v.Local.sRegData, V.DataTable.CutList(v.Local.iCount).Ref_Designator!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).Router!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).Router_Rev!FieldvalTrim,V.DataTable.CutList(v.Local.iCount).ID!FieldvalTrim,v.Local.sDateCode, v.Local.sEC,v.Ambient.NewLine,v.Local.sRegData)</string>
+        <string>		F.Intrinsic.Control.EndSelect</string>
+        <string>	F.Intrinsic.Control.Next(v.Local.iInnerCount)</string>
+        <string>F.Intrinsic.Control.Next(v.Local.iCount)</string>
+        <string>'Save Files</string>
+        <string>F.Intrinsic.String.Build("\\D1HCWX12\cbllabel\CBL{0}LSM.txt", v.Passed.009990, v.Local.sSmallFile)</string>
+        <string>F.Intrinsic.String.Build("\\D1HCWX12\cbllabel\CBL{0}L.txt", v.Passed.009990, v.Local.sRegFile)</string>
+        <string>F.Intrinsic.File.String2File(v.Local.sSmallFile, v.Local.sSmallData)</string>
+        <string>F.Intrinsic.File.String2File(v.Local.sRegFile, v.Local.sRegData)</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("CreateFile_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.CreateFile.End</string>
+        <string />
+        <string>Program.Sub.unload.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("unload_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("unload_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_ExportData.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.unload.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$$}$1/6/2017 7:36:16 AM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>74</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>2</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>4</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>34</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>36</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>64</Y>
+        </EndPoint>
+        <Text>Program.Sub.GetData</Text>
+        <DisplayText>Program.Sub.GetData</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>66</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>108</Y>
+        </EndPoint>
+        <Text>Program.Sub.CreateFile</Text>
+        <DisplayText>Program.Sub.CreateFile</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>110</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>125</Y>
+        </EndPoint>
+        <Text>Program.Sub.unload</Text>
+        <DisplayText>Program.Sub.unload</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>127</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>129</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
