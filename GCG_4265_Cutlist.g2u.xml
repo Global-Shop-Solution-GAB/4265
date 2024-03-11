@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SearchOptions>None</SearchOptions>
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>542</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>542</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>542</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Gui.Form..Create</string>
+        <string>Gui.Form..Caption("Cutlist Information")</string>
+        <string>Gui.Form..Size(19740,8430)</string>
+        <string>Gui.Form..MinX(0)</string>
+        <string>Gui.Form..MinY(0)</string>
+        <string>Gui.Form..Position(0,0)</string>
+        <string>Gui.Form..BackColor(-2147483633)</string>
+        <string>Gui.Form..MousePointer(0)</string>
+        <string>Gui.Form..Sizeable(False)</string>
+        <string>Gui.Form..Event(UnLoad,Custlist_UnLoad)</string>
+        <string>Gui.Form.cmdSave.Create(Button)</string>
+        <string>Gui.Form.cmdSave.Size(1095,435)</string>
+        <string>Gui.Form.cmdSave.Position(225,1125)</string>
+        <string>Gui.Form.cmdSave.Caption("Save")</string>
+        <string>Gui.Form.cmdSave.Event(Click,cmdSave_Click)</string>
+        <string>Gui.Form.cmdSave.TabStop(True)</string>
+        <string>Gui.Form.cmdSave.TabIndex(13)</string>
+        <string>Gui.Form.GsGridControl1.Create(GsGridControl)</string>
+        <string>Gui.Form.GsGridControl1.Size(19260,5370)</string>
+        <string>Gui.Form.GsGridControl1.Position(120,1710)</string>
+        <string>Gui.Form.GsGridControl1.Event(RowCellClick,GsGridControl1_RowClick)</string>
+        <string>Gui.Form.lblCablePartNO.Create(Label,"Cable Part No.",True,1290,255,0,195,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtCablePartNo.Create(TextBox,"",True,1905,300,0,195,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtCablePartNo.MaxLength(18)</string>
+        <string>Gui.Form.txtCablePartNo.DefaultValue("")</string>
+        <string>Gui.Form.txtCablePartNo.ControlGroup(1)</string>
+        <string>Gui.Form.txtCablePartNo.TabStop(True)</string>
+        <string>Gui.Form.txtCablePartNo.TabIndex(1)</string>
+        <string>Gui.Form.txtSide.Create(TextBox,"",True,510,300,0,2190,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtSide.MaxLength(2)</string>
+        <string>Gui.Form.txtSide.DefaultValue("")</string>
+        <string>Gui.Form.txtSide.ControlGroup(1)</string>
+        <string>Gui.Form.txtSide.TabStop(True)</string>
+        <string>Gui.Form.txtSide.TabIndex(2)</string>
+        <string>Gui.Form.lblSide.Create(Label,"Side",True,510,255,0,2190,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblRefDesignator.Create(Label,"Ref Designator",True,1935,255,0,2805,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblContact.Create(Label,"Contact",True,1200,255,0,4830,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtRefDesignaor.Create(TextBox,"",True,1905,300,0,2805,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtRefDesignaor.MaxLength(18)</string>
+        <string>Gui.Form.txtRefDesignaor.DefaultValue("")</string>
+        <string>Gui.Form.txtRefDesignaor.ControlGroup(1)</string>
+        <string>Gui.Form.txtRefDesignaor.TabStop(True)</string>
+        <string>Gui.Form.txtRefDesignaor.TabIndex(3)</string>
+        <string>Gui.Form.txtDejacket.Create(TextBox,"",True,1215,300,0,6180,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtDejacket.NumericOnly(True)</string>
+        <string>Gui.Form.txtDejacket.Event(LostFocus,LostFocus)</string>
+        <string>Gui.Form.txtDejacket.DefaultValue("")</string>
+        <string>Gui.Form.txtDejacket.ControlGroup(1)</string>
+        <string>Gui.Form.txtDejacket.TabStop(True)</string>
+        <string>Gui.Form.txtDejacket.TabIndex(5)</string>
+        <string>Gui.Form.lblDeJacket.Create(Label,"Dejacket",True,960,255,0,6180,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtContact.Create(TextBox,"",True,1215,300,0,4830,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtContact.MaxLength(10)</string>
+        <string>Gui.Form.txtContact.DefaultValue("")</string>
+        <string>Gui.Form.txtContact.ControlGroup(1)</string>
+        <string>Gui.Form.txtContact.TabStop(True)</string>
+        <string>Gui.Form.txtContact.TabIndex(4)</string>
+        <string>Gui.Form.lblStripper.Create(Label,"Stripper",True,915,240,0,7530,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtStripper.Create(TextBox,"",True,1215,300,0,7530,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtStripper.NumericOnly(True)</string>
+        <string>Gui.Form.txtStripper.Event(LostFocus,LostFocus)</string>
+        <string>Gui.Form.txtStripper.DefaultValue("")</string>
+        <string>Gui.Form.txtStripper.ControlGroup(1)</string>
+        <string>Gui.Form.txtStripper.TabStop(True)</string>
+        <string>Gui.Form.txtStripper.TabIndex(6)</string>
+        <string>Gui.Form.lblLength.Create(Label,"Length",True,1005,255,0,8880,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtLength.Create(TextBox,"",True,1215,300,0,8880,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtLength.NumericOnly(True)</string>
+        <string>Gui.Form.txtLength.Event(LostFocus,LostFocus)</string>
+        <string>Gui.Form.txtLength.DefaultValue("")</string>
+        <string>Gui.Form.txtLength.ControlGroup(1)</string>
+        <string>Gui.Form.txtLength.TabStop(True)</string>
+        <string>Gui.Form.txtLength.TabIndex(7)</string>
+        <string>Gui.Form.lblSizeLabel.Create(Label,"Size Label",True,870,255,0,10200,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblUser1.Create(Label,"User 1",True,720,255,0,11415,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblUser2.Create(Label,"User 2",True,720,255,0,13410,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblUser3.Create(Label,"User 3",True,720,255,0,15405,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblUser4.Create(Label,"User 4",True,720,255,0,17415,300,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtUser1.Create(TextBox,"",True,1905,300,0,11415,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtUser1.MaxLength(18)</string>
+        <string>Gui.Form.txtUser1.DefaultValue("")</string>
+        <string>Gui.Form.txtUser1.ControlGroup(1)</string>
+        <string>Gui.Form.txtUser1.TabStop(True)</string>
+        <string>Gui.Form.txtUser1.TabIndex(9)</string>
+        <string>Gui.Form.txtUser2.Create(TextBox,"",True,1905,300,0,13410,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtUser2.MaxLength(18)</string>
+        <string>Gui.Form.txtUser2.DefaultValue("")</string>
+        <string>Gui.Form.txtUser2.ControlGroup(1)</string>
+        <string>Gui.Form.txtUser2.TabStop(True)</string>
+        <string>Gui.Form.txtUser2.TabIndex(10)</string>
+        <string>Gui.Form.txtuser3.Create(TextBox,"",True,1905,300,0,15420,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtuser3.MaxLength(18)</string>
+        <string>Gui.Form.txtuser3.DefaultValue("")</string>
+        <string>Gui.Form.txtuser3.ControlGroup(1)</string>
+        <string>Gui.Form.txtuser3.TabStop(True)</string>
+        <string>Gui.Form.txtuser3.TabIndex(11)</string>
+        <string>Gui.Form.txtUser4.Create(TextBox,"",True,1905,300,0,17415,510,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtUser4.MaxLength(18)</string>
+        <string>Gui.Form.txtUser4.DefaultValue("")</string>
+        <string>Gui.Form.txtUser4.ControlGroup(1)</string>
+        <string>Gui.Form.txtUser4.TabStop(True)</string>
+        <string>Gui.Form.txtUser4.TabIndex(12)</string>
+        <string>Gui.Form.cmdClear.Create(Button)</string>
+        <string>Gui.Form.cmdClear.Size(1095,435)</string>
+        <string>Gui.Form.cmdClear.Position(1530,1125)</string>
+        <string>Gui.Form.cmdClear.Caption("Clear")</string>
+        <string>Gui.Form.cmdClear.Event(Click,cmdClear_Click)</string>
+        <string>Gui.Form.cmdDelete.Create(Button)</string>
+        <string>Gui.Form.cmdDelete.Size(1095,435)</string>
+        <string>Gui.Form.cmdDelete.Position(255,7320)</string>
+        <string>Gui.Form.cmdDelete.Caption("Delete")</string>
+        <string>Gui.Form.cmdDelete.Event(Click,cmdDelete_Click)</string>
+        <string>Gui.Form.ddlSize.Create(DropDownList)</string>
+        <string>Gui.Form.ddlSize.Size(1125,330)</string>
+        <string>Gui.Form.ddlSize.Position(10200,510)</string>
+        <string>Gui.Form.ddlSize.TabStop(True)</string>
+        <string>Gui.Form.ddlSize.TabIndex(8)</string>
+        <string>Gui.Form.txtRec_ID.Create(TextBox,"",False,1215,300,0,18120,1320,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtRec_ID.NumericOnly(2)</string>
+        <string>Gui.Form.txtRec_ID.ControlGroup(1)</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string>V.Global.iRowIndex.Declare(Long,-1)</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'The user will select a Router before clicking on the Script 3 button. If no router is selected the user will be prompted to select one.</string>
+        <string>'Once the user has selected a Router and clicked on the Script 3 button a screen will pop up that allows them to enter in the Cutlist information for the Router.</string>
+        <string>'Date: 12/5/17</string>
+        <string>'Programmer: WAW,SKC</string>
+        <string />
+        <string>'check to see if the router header populate hook fires or if the script 3 button hook fires</string>
+        <string>f.Intrinsic.Control.If(v.Caller.Hook,=,11010)</string>
+        <string>	'set the script 3 text button text</string>
+        <string>	v.Passed.000203.set("Cutlist")</string>
+        <string>	f.Intrinsic.Control.ExitSub</string>
+        <string>f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,11140)</string>
+        <string>	'check to see if the router is blank, if so end the program</string>
+        <string>	f.Intrinsic.Control.If(v.Passed.000014,=,"")</string>
+        <string>		f.Intrinsic.UI.Msgbox("Please select a Router")</string>
+        <string>		f.Intrinsic.Control.ExitSub</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	Gui.Form.ddlSize.AddItem("S-Small")</string>
+        <string>	Gui.Form.ddlSize.AddItem("R-Reg")</string>
+        <string>f.Intrinsic.Control.endif	</string>
+        <string />
+        <string>F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string>'load the screen</string>
+        <string>f.Intrinsic.Control.CallSub(LoadScreen)</string>
+        <string />
+        <string>'display the screen</string>
+        <string>gui.Form..Visible(true)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(Custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Custlist_UnLoad.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.sKey.Declare(String)</string>
+        <string>V.Local.sSql.Declare(String)</string>
+        <string>V.Local.sRouter.Declare(String)</string>
+        <string />
+        <string>'make the form invisible</string>
+        <string>gui.Form..Visible(false)</string>
+        <string />
+        <string>F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)</string>
+        <string>F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)</string>
+        <string />
+        <string>'v.Local.sKey.set("ROUTER*!*ROUTER_REV*!*CABLE_PART*!*SIDE*!*REF_DESIGNATOR*!*CONTACT*!*DEJACKET*!*STRIPPER*!*LENGTH*!*SIZE_LABEL*!*USER_FIELD1*!*USER_FIELD2*!*USER_FIELD3*!*USER_FIELD4")</string>
+        <string>'F.Data.DataTable.RemoveColumn("GRID", "Delete")</string>
+        <string>'F.Data.DataTable.SaveToDB("GRID", "conx","GCG_4265_Cutlist",v.Local.skey, 7) </string>
+        <string>F.Intrinsic.String.Build("Delete From GCG_4265_Cutlist Where Router = '{0}'",V.Local.sRouter,V.Local.sSql)</string>
+        <string>F.ODBC.Connection!conx.Execute(V.Local.sSql)</string>
+        <string />
+        <string>'saving in this manner since saving modified records isn't working when using datatables.</string>
+        <string>F.Intrinsic.Control.If(V.DataTable.GRID.RowCount--,&gt;,-1)</string>
+        <string>	F.Intrinsic.Control.If(V.DataView.Grid!Grid.Exists,=,True)</string>
+        <string>		F.Data.DataView.Close("Grid","Grid")</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>	F.Data.DataView.Create("GRID","GRID")</string>
+        <string>	F.Data.DataView.SetFilter("GRID","GRID","Router &lt;&gt; ' '")</string>
+        <string>	F.Data.DataView.ToDataTable("GRID","GRID","Temp")</string>
+        <string>	F.Intrinsic.Control.If(V.DataTable.Temp.RowCount--,&lt;&gt;,-1)</string>
+        <string>		F.Data.DataTable.SaveToDB("Temp","conx","GCG_4265_Cutlist","Rec_ID*!*ROUTER",256,"REC_ID@!@REC_ID*!*ROUTER@!@ROUTER*!*CABLE_PART@!@CABLE_PART*!*SIDE@!@SIDE*!*REF_DESIGNATOR@!@REF_DESIGNATOR*!*CONTACT@!@CONTACT*!*DEJACKET@!@DEJACKET*!*STRIPPER@!@STRIPPER*!*LENGTH@!@LENGTH*!*SIZE_LABEL@!@SIZE_LABEL*!*USER_FIELD1@!@USER_FIELD1*!*USER_FIELD2@!@USER_FIELD2*!*USER_FIELD3@!@USER_FIELD3*!*USER_FIELD4@!@USER_FIELD4")</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>'close connection to the database</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string>'end the program</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.Custlist_UnLoad.End</string>
+        <string />
+        <string>Program.Sub.LoadScreen.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("LoadScreen_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.ssql.Declare(String)</string>
+        <string>v.Local..BulkDeclareString(sRouter, sRev)</string>
+        <string />
+        <string />
+        <string>f.Intrinsic.Control.If(v.DataTable.GRID.exists,=,True)</string>
+        <string>	f.Data.DataTable.Close("GRID")</string>
+        <string>f.Intrinsic.Control.endif</string>
+        <string />
+        <string>F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)</string>
+        <string>F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)</string>
+        <string />
+        <string>'query for the router info from the custom table</string>
+        <string>f.Intrinsic.String.Build("Select * from GCG_4265_Cutlist where ROUTER = '{0}' Order By Rec_ID",V.Local.sRouter,v.local.ssql)</string>
+        <string>F.Data.DataTable.CreateFromSQL("GRID", "conx", v.Local.sSql, True)</string>
+        <string>F.Data.DataTable.AddColumn("GRID", "Delete", "Boolean", False)</string>
+        <string />
+        <string>'create the dataview</string>
+        <string>f.data.dataview.create("GRID","GRID")</string>
+        <string />
+        <string>'hide some columns and format others</string>
+        <string>Gui.Form.GsGridControl1.AddGridViewFromDataView("GRID","GRID","GRID")</string>
+        <string>'format the grid</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("GRID","REC_ID","VISIBLE",False)</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","ROUTER","visible",false)</string>
+        <string>'gui.Form.GsGridControl1.setcolumnproperty("GRID","ROUTER_REV","visible",false)</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","Caption","Cable Part")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CABLE_PART","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR","Caption","Ref Desig.")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","REF_DESIGNATOR","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIDE","Caption","Side")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIDE","MaxWidth","50")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIDE","Width","50")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","Caption","Contact")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","MaxWidth","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","CONTACT","Width","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","Caption","Dejacket")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","MaxWidth","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","DEJACKET","Width","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","Caption","Length")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","MaxWidth","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","LENGTH","Width","85")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","Caption","Size Label")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","MaxWidth","65")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","SIZE_LABEL","Width","65")</string>
+        <string />
+        <string>'set the maxes for the user fields to be a little larger</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD1","Caption","User 1")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD1","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD1","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD2","Caption","User 2")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD2","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD2","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD3","Caption","User 3")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD3","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD3","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD4","Caption","User 4")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD4","MaxWidth","100")</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","USER_FIELD4","Width","100")</string>
+        <string>gui.Form.GsGridControl1.setGridviewProperty("GRID","Editable",FALSE)</string>
+        <string>gui.Form.GsGridControl1.setGridviewProperty("GRID","READONLY",TRUE)</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","DELETE","READONLY",False)</string>
+        <string>gui.Form.GsGridControl1.setcolumnproperty("GRID","DELETE","AllowEdit",True)</string>
+        <string>gui.Form.GsGridControl1.MainView("GRID")</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("LoadScreen_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(Custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.LoadScreen.End</string>
+        <string />
+        <string>Program.Sub.cmdSave_Click.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("LoadScreen_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>v.Local.serror.Declare(string)</string>
+        <string>v.Local.i.Declare(long)</string>
+        <string>v.Local.skey.Declare(string)</string>
+        <string>v.Local.sSize.Declare(String)</string>
+        <string>V.Local.iRec_ID.Declare(Long)</string>
+        <string>V.Local.sRouter.Declare(String)</string>
+        <string>v.Local.i.Set(v.DataTable.GRID.ROwcount--)</string>
+        <string>V.Local.iRec_ID.Set(V.DataTable.GRID.RowCount)</string>
+        <string />
+        <string>'making sure cable part number is entered before adding to the grid</string>
+        <string>F.Intrinsic.Control.If(V.Screen.Form!txtCablePartNo.Text,=,"")</string>
+        <string>	F.Intrinsic.UI.Msgbox("At least the Cable Part# needs to be entered before saving to the grid.","Warning")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>'make sure there are no string or blank values in numeric text fields</string>
+        <string>f.Intrinsic.Control.If(v.Screen.Form!txtDejacket.Text,=,"")</string>
+        <string>	gui.Form.txtDejacket.Text("0")</string>
+        <string>f.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>f.Intrinsic.Control.If(v.Screen.Form!txtLength.Text,=,"")</string>
+        <string>	gui.Form.txtlength.Text("0")</string>
+        <string>f.Intrinsic.control.EndIf</string>
+        <string />
+        <string>f.Intrinsic.Control.If(v.Screen.Form!txtStripper.Text,=,"")</string>
+        <string>	gui.Form.txtStripper.Text("0")</string>
+        <string>f.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.If(v.Screen.Form!ddlSize.Text, =, "S-Small")</string>
+        <string>	v.Local.sSize.set("S")</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	v.Local.sSize.set("R")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.String.RPad(V.Passed.000014," ",17,V.Local.sRouter)</string>
+        <string>F.Intrinsic.String.Build("{0}{1}",V.Local.sRouter,V.Passed.000015,V.Local.sRouter)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Global.iRowIndex,=,-1)</string>
+        <string>	'see if this is the first entry </string>
+        <string>	f.Intrinsic.Control.If(v.Local.i,=,0)</string>
+        <string>		f.Intrinsic.Control.If(v.DataTable.GRID(v.Local.i).ROUTER!fieldvaltrim,=,"")</string>
+        <string>			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"REC_ID",V.Local.iRec_ID)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"ROUTER",V.Local.sRouter)</string>
+        <string>'			F.Data.DataTable.SetValue("GRID",0,"ROUTER",v.Passed.000014)</string>
+        <string>'			F.Data.DataTable.SetValue("GRID",0,"ROUTER_REV",v.Passed.000015)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"SIDE",v.Screen.Form!txtSide.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"REF_DESIGNATOR",v.Screen.Form!txtRefDesignaor.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"CONTACT",v.Screen.Form!txtContact.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"DEJACKET",v.Screen.Form!txtDejacket.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"STRIPPER",v.Screen.Form!txtStripper.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"LENGTH",v.Screen.Form!txtLength.Text)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"SIZE_LABEL",v.Local.sSize)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"USER_FIELD1",v.Screen.Form!txtUser1.Text)	</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"USER_FIELD2",v.Screen.Form!txtUser2.Text)		</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"USER_FIELD3",v.Screen.Form!txtuser3.Text)</string>
+        <string>			F.Data.DataTable.SetValue("GRID",0,"USER_FIELD4",v.Screen.Form!txtUser4.Text)	</string>
+        <string>		f.Intrinsic.Control.Else</string>
+        <string>			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)</string>
+        <string>			F.Data.DataTable.AddRow("GRID","REC_ID",V.Local.iRec_ID,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text,"SIDE",v.Screen.Form!txtSide.Text,"REF_DESIGNATOR",v.Screen.Form!txtRefDesignaor.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"USER_FIELD1",v.Screen.Form!txtUser1.Text,"USER_FIELD2",v.Screen.Form!txtUser2.Text,"USER_FIELD3",v.Screen.Form!txtUser3.Text,"USER_FIELD4",v.Screen.Form!txtUser4.Text)</string>
+        <string>		f.Intrinsic.Control.EndIf</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		F.Intrinsic.Control.If(V.Local.i,=,-1)</string>
+        <string>			F.Data.DataTable.AddRow("GRID","REC_ID",1,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text,"SIDE",v.Screen.Form!txtSide.Text,"REF_DESIGNATOR",v.Screen.Form!txtRefDesignaor.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"USER_FIELD1",v.Screen.Form!txtUser1.Text,"USER_FIELD2",v.Screen.Form!txtUser2.Text,"USER_FIELD3",v.Screen.Form!txtUser3.Text,"USER_FIELD4",v.Screen.Form!txtUser4.Text)</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			F.Intrinsic.Math.Add(V.DataTable.GRID(V.DataTable.GRID.RowCount--).REC_ID!FieldValLong,1,V.Local.iRec_ID)</string>
+        <string>			'otherwise just add a row</string>
+        <string>			F.Data.DataTable.AddRow("GRID","REC_ID",V.Local.iRec_ID,"ROUTER",V.Local.sRouter,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text,"SIDE",v.Screen.Form!txtSide.Text,"REF_DESIGNATOR",v.Screen.Form!txtRefDesignaor.Text,"CONTACT",v.Screen.Form!txtContact.Text,"DEJACKET",v.Screen.Form!txtDejacket.Text,"STRIPPER",v.Screen.Form!txtStripper.Text,"LENGTH",v.Screen.Form!txtLength.Text,"SIZE_LABEL",v.Local.sSize,"USER_FIELD1",v.Screen.Form!txtUser1.Text,"USER_FIELD2",v.Screen.Form!txtUser2.Text,"USER_FIELD3",v.Screen.Form!txtUser3.Text,"USER_FIELD4",v.Screen.Form!txtUser4.Text)</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"ROUTER",V.Local.sRouter)</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"CABLE_PART",v.Screen.Form!txtCablePartNo.Text)</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"SIDE",v.Screen.Form!txtSide.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"REF_DESIGNATOR",v.Screen.Form!txtRefDesignaor.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"CONTACT",v.Screen.Form!txtContact.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"DEJACKET",v.Screen.Form!txtDejacket.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"STRIPPER",v.Screen.Form!txtStripper.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"LENGTH",v.Screen.Form!txtLength.Text)</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"SIZE_LABEL",v.Local.sSize)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"USER_FIELD1",v.Screen.Form!txtUser1.Text)	</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"USER_FIELD2",v.Screen.Form!txtUser2.Text)		</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"USER_FIELD3",v.Screen.Form!txtuser3.Text)</string>
+        <string>	F.Data.DataTable.SetValue("GRID",V.Global.iRowIndex,"USER_FIELD4",v.Screen.Form!txtUser4.Text)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>V.Global.iRowIndex.Set(-1)</string>
+        <string />
+        <string>'call the clear sub</string>
+        <string>f.Intrinsic.Control.CallSub(cmdclear_click)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("LoadScreen_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.cmdSave_Click.End</string>
+        <string />
+        <string>Program.Sub.LostFocus.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.bRet.Declare(Boolean)</string>
+        <string>v.Local.sValue.Declare(String)</string>
+        <string>v.Local.sValue.Set(v.Screen.Form![v.Args.ControlName].text)</string>
+        <string />
+        <string>F.Intrinsic.Math.IsNumeric(v.Local.sValue, v.Local.bRet)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(v.Local.sValue.Trim, !=, "")</string>
+        <string>	F.Intrinsic.Control.If(v.Local.bRet, =, False)</string>
+        <string>		F.Intrinsic.UI.Msgbox("Value needs to be Numeric!", "Invalid Data")</string>
+        <string>		gui.Form.[v.Args.ControlName].Text("")</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(Custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.LostFocus.End</string>
+        <string />
+        <string>Program.Sub.cmdClear_Click.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'clear all the textboxes</string>
+        <string>gui.Form..ClearGroup(1)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.cmdClear_Click.End</string>
+        <string />
+        <string>Program.Sub.cmdDelete_Click.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>v.Local..BulkDeclareString(sError, sFilter, ssql, skey)</string>
+        <string>v.Local.i.Declare(long)</string>
+        <string>V.Local.i.Set(v.dataTable.GRID.RowCount--)</string>
+        <string />
+        <string>'loop through the datatable</string>
+        <string>F.Intrinsic.Control.For(v.Local.i,v.dataTable.GRID.RowCount--,0,-1)</string>
+        <string>	'check to see if selected</string>
+        <string>	f.Intrinsic.Control.If(v.DataTable.GRID(v.Local.I).DELETE.fieldvaltrim,=,"True")</string>
+        <string>		f.Data.DataTable.DeleteRow("GRID",v.Local.i)</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>f.Intrinsic.Control.Next(v.Local.I)</string>
+        <string />
+        <string>'call the clear sub</string>
+        <string>f.Intrinsic.Control.CallSub(cmdclear_click)</string>
+        <string />
+        <string>gui.Form..Visible(true)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.cmdDelete_Click.End</string>
+        <string />
+        <string>Program.Sub.GsGridControl1_RowClick.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("GsGridControl1_RowCellClick_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.bRet.Declare(Boolean)</string>
+        <string>v.Local..BulkDeclareString(sSerial, sFilter)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(v.Args.Column, =, "Delete")</string>
+        <string>	F.Intrinsic.Control.If(v.DataTable.Grid(v.Args.RowIndex).Delete!Fieldval, =, False)</string>
+        <string>		F.Data.DataTable.SetValue("GRID", v.Args.RowIndex, "DELETE", True)</string>
+        <string>	F.Intrinsic.Control.Else</string>
+        <string>		F.Data.DataTable.SetValue("GRID", v.Args.RowIndex, "DELETE", False)</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>V.Global.iRowIndex.Set(V.Args.RowIndex)</string>
+        <string />
+        <string>F.Intrinsic.String.Build("CABLE_PART = '{0}'", v.DataTable.GRID(v.Args.RowIndex).CABLE_PART!FieldValTrim, v.Local.sFilter)</string>
+        <string>F.Data.DataView.Create("GRID", "GRID2", 22, v.Local.sFilter,)</string>
+        <string />
+        <string>'move data to the textboxes</string>
+        <string>Gui.Form.txtRec_ID.Text(v.Dataview.GRID!GRID2(0).REC_ID!FieldValLong)</string>
+        <string>Gui.Form.txtCablePartNo.Text(v.Dataview.GRID!GRID2(0).CABLE_PART!FieldValTrim)</string>
+        <string>Gui.Form.txtContact.Text(v.Dataview.GRID!GRID2(0).CONTACT!FieldValTrim)</string>
+        <string>Gui.Form.txtDejacket.Text(v.Dataview.GRID!GRID2(0).DEJACKET!FieldValTrim)</string>
+        <string>Gui.Form.txtLength.Text(v.Dataview.GRID!GRID2(0).LENGTH!FieldValTrim)</string>
+        <string>Gui.Form.txtRefDesignaor.Text(v.Dataview.GRID!GRID2(0).REF_DESIGNATOR!FieldValTrim)</string>
+        <string>gui.Form.txtSide.Text(v.Dataview.GRID!GRID2(0).SIDE!FieldValTrim)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(v.Dataview.GRID!GRID2(0).SIZE_LABEL!FieldValTrim, =, "S")</string>
+        <string>	Gui.Form.ddlSize.FindItem("S-Small", v.Local.bRet)</string>
+        <string>F.Intrinsic.Control.Else</string>
+        <string>	Gui.Form.ddlSize.FindItem("R-Reg", v.Local.bRet)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>gui.Form.ddlSize.Text(v.Dataview.GRID!GRID2(0).SIZE_LABEL!FieldValTrim)</string>
+        <string>gui.Form.txtStripper.Text(v.Dataview.GRID!GRID2(0).STRIPPER!FieldValTrim)</string>
+        <string>gui.Form.txtUser1.Text(v.Dataview.GRID!GRID2(0).USER_FIELD1!FieldValTrim)</string>
+        <string>gui.Form.txtUser2.Text(v.Dataview.GRID!GRID2(0).USER_FIELD2!FieldValTrim)</string>
+        <string>gui.Form.txtUser3.Text(v.Dataview.GRID!GRID2(0).USER_FIELD3!FieldValTrim)</string>
+        <string>gui.Form.txtUser4.Text(v.Dataview.GRID!GRID2(0).USER_FIELD4!FieldValTrim)</string>
+        <string />
+        <string>F.Data.DataView.Close("GRID", "GRID2")</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("GsGridControl1_RowCellClick_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4265_Cutlist.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(custlist_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.GsGridControl1_RowClick.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$WAW$}$1/2/2017 12:40:09 AM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>366</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>121</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>123</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>125</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>127</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>169</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>171</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>218</Y>
+        </EndPoint>
+        <Text>Program.Sub.Custlist_UnLoad</Text>
+        <DisplayText>Program.Sub.Custlist_UnLoad</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>220</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>299</Y>
+        </EndPoint>
+        <Text>Program.Sub.LoadScreen</Text>
+        <DisplayText>Program.Sub.LoadScreen</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>301</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>405</Y>
+        </EndPoint>
+        <Text>Program.Sub.cmdSave_Click</Text>
+        <DisplayText>Program.Sub.cmdSave_Click</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>407</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>433</Y>
+        </EndPoint>
+        <Text>Program.Sub.LostFocus</Text>
+        <DisplayText>Program.Sub.LostFocus</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>435</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>452</Y>
+        </EndPoint>
+        <Text>Program.Sub.cmdClear_Click</Text>
+        <DisplayText>Program.Sub.cmdClear_Click</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>454</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>482</Y>
+        </EndPoint>
+        <Text>Program.Sub.cmdDelete_Click</Text>
+        <DisplayText>Program.Sub.cmdDelete_Click</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>484</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>540</Y>
+        </EndPoint>
+        <Text>Program.Sub.GsGridControl1_RowClick</Text>
+        <DisplayText>Program.Sub.GsGridControl1_RowClick</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>542</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>544</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
